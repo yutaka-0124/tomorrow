@@ -1,0 +1,1174 @@
+/* ==================================================
+   REMEMBER
+   ================================================== */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+body {
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans JP",
+        "Yu Gothic",
+        sans-serif;
+
+    background: #fafafa;
+
+    color: #222;
+
+    overflow: hidden;
+
+}
+
+
+
+/* ==================================================
+   3画面
+   ================================================== */
+
+.pages {
+
+    display: flex;
+
+    width: 400vw;
+
+    height: 100vh;
+
+    transform:
+        translateX(-100vw);
+
+    transition:
+        transform 0.35s ease;
+
+    touch-action: pan-y;
+
+}
+
+
+.page {
+
+    width: 100vw;
+
+    height: 100vh;
+
+    flex-shrink: 0;
+
+    overflow-y: auto;
+
+}
+
+
+.page-inner {
+
+    width: min(
+        520px,
+        90vw
+    );
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding:
+        70px 0 80px;
+
+}
+
+
+
+/* ==================================================
+   ページタイトル
+   ================================================== */
+
+.page-title {
+
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    letter-spacing: 0.35em;
+
+    margin-bottom: 60px;
+
+}
+
+
+
+/* ==================================================
+   TODAY
+   ================================================== */
+
+.today-page .page-inner {
+
+    text-align: center;
+
+}
+
+
+.date {
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    margin-bottom: 25px;
+
+}
+
+
+.time {
+
+    font-size: 72px;
+
+    font-weight: 200;
+
+    letter-spacing: 0.03em;
+
+    margin-bottom: 90px;
+
+}
+
+
+.today-title {
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    letter-spacing: 0.35em;
+
+    margin-bottom: 65px;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+    
+    -webkit-touch-callout: none;
+
+}
+
+
+.today-tasks {
+
+    width: 100%;
+
+    text-align: left;
+
+}
+
+
+.task {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 70px;
+
+    padding: 8px 0;
+
+}
+
+
+.task input[type="checkbox"] {
+
+    width: 26px;
+
+    height: 26px;
+
+    flex-shrink: 0;
+
+    margin:
+        0 20px 0 0;
+
+    cursor: pointer;
+
+}
+
+
+.today-task-text {
+
+    flex: 1;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+
+}
+
+
+.today-task-text:hover {
+
+    opacity: 0.6;
+
+}
+
+
+.delete-today {
+
+    border: none;
+
+    background: transparent;
+
+    color: #999;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+    margin-left: 10px;
+
+}
+
+
+.delete-today:hover {
+
+    color: #333;
+
+}
+
+
+.progress {
+
+    margin-top: 35px;
+
+    color: #888;
+
+    font-size: 20px;
+
+}
+
+
+.add-today-button {
+
+    display: block;
+
+    width: 52px;
+
+    height: 52px;
+
+    margin:
+        30px auto 0;
+
+    border:
+        1px solid #aaa;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #333;
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+}
+
+
+.add-today-button:hover {
+
+    background: #f5f5f5;
+
+}
+
+
+.separator {
+
+    width: 100%;
+
+    height: 1px;
+
+    background: #ddd;
+
+    margin:
+        70px 0 50px;
+
+}
+
+
+.tomorrow-section {
+
+    text-align: center;
+
+}
+
+
+.tomorrow-section h2 {
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.35em;
+
+    margin:
+        0 0 25px;
+
+}
+
+
+.tomorrow-preview {
+
+    font-size: 19px;
+
+    line-height: 2;
+
+    color: #555;
+
+}
+
+
+.tomorrow-button {
+
+    margin-top: 30px;
+
+    padding:
+        13px 25px;
+
+    border:
+        1px solid #ccc;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #333;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+
+.tomorrow-button:hover {
+
+    background: #f5f5f5;
+
+}
+
+
+
+/* ==================================================
+   WANT
+   ================================================== */
+
+.want-page .page-inner {
+
+    text-align: center;
+
+}
+
+
+.plus-button {
+
+    width: 64px;
+
+    height: 64px;
+
+    margin:
+        0 auto 65px;
+
+    border:
+        1px solid #aaa;
+
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 32px;
+
+    font-weight: 200;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+}
+
+
+.plus-button:hover {
+
+    background: #f5f5f5;
+
+}
+
+
+.want-list {
+
+    width: 100%;
+
+    text-align: left;
+
+}
+
+
+.want-item {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 65px;
+
+    border-bottom:
+        1px solid #ddd;
+
+}
+
+
+.want-text {
+
+    flex: 1;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+
+.want-text:hover {
+
+    opacity: 0.6;
+
+}
+
+
+.delete-want {
+
+    border: none;
+
+    background: transparent;
+
+    color: #999;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+}
+
+
+.delete-want:hover {
+
+    color: #333;
+
+}
+
+
+
+/* ==================================================
+   INSPIRE
+   ================================================== */
+
+.inspire-page .page-inner {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.inspire-page .page-title {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+.inspire-grid {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 24px;
+
+    width: 100%;
+
+}
+
+
+.inspire-card {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    height: 330px;
+
+    padding: 0;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 14px;
+
+    background: white;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    font-size: 22px;
+
+    color: #222;
+
+}
+
+
+.person-card-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.quote-card-text {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    font-size: 21px;
+
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+
+}
+
+
+
+/* ==================================================
+   モーダル
+   ================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.2s ease;
+
+    z-index: 1000;
+
+}
+
+
+.modal.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.modal-content {
+
+    width:
+        min(420px, 85vw);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    border-radius: 16px;
+
+    background: white;
+
+}
+
+
+.modal-content h2 {
+
+    margin:
+        0 0 30px;
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+}
+
+
+.modal-content input[type="text"] {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    border:
+        1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+
+    outline: none;
+
+}
+
+
+.modal-content input[type="text"]:focus {
+
+    border-color: #888;
+
+}
+
+
+.modal-content > button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #333;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+}
+
+
+.modal-content > button:hover {
+
+    background: #555;
+
+}
+
+
+
+/* ==================================================
+   画像モーダル
+   ================================================== */
+
+.image-select-button {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 18px;
+
+    border:
+        1px solid #ccc;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+}
+
+
+.image-select-button:hover {
+
+    background: #f5f5f5;
+
+}
+
+
+.person-image-preview {
+
+    width: 100%;
+
+    height: 250px;
+
+    margin-top: 25px;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #f5f5f5;
+
+}
+
+
+.person-image-preview img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.opacity-control {
+
+    margin-top: 25px;
+
+}
+
+
+.control-label {
+
+    margin-bottom: 10px;
+
+    font-size: 16px;
+
+    color: #666;
+
+}
+
+
+.opacity-control input[type="range"] {
+
+    width: 100%;
+
+}
+
+
+.delete-person-button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border:
+        1px solid #ccc !important;
+
+    border-radius: 8px;
+
+    background: white !important;
+
+    color: #777 !important;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+
+.delete-person-button:hover {
+
+    background: #f5f5f5 !important;
+
+    color: #333 !important;
+
+}
+
+
+
+/* ==================================================
+   言葉
+   ================================================== */
+
+.quote-input {
+
+    width: 100%;
+
+    height: 180px;
+
+    resize: vertical;
+
+    padding: 15px;
+
+    border:
+        1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    outline: none;
+
+}
+
+
+.quote-input:focus {
+
+    border-color: #888;
+
+}
+
+
+
+/* ==================================================
+   スマートフォン
+   ================================================== */
+
+@media (
+    max-width: 600px
+) {
+
+    .page-inner {
+
+        width: 88vw;
+
+        padding-top: 50px;
+
+    }
+
+
+    .page-title {
+
+        font-size: 25px;
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .date {
+
+        font-size: 24px;
+
+    }
+
+
+    .time {
+
+        font-size: 58px;
+
+        margin-bottom: 65px;
+
+    }
+
+
+    .today-title {
+
+        font-size: 26px;
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .today-task-text {
+
+        font-size: 18px;
+
+    }
+
+
+    .inspire-card {
+
+        height: 240px;
+
+    }
+
+
+    .modal-content {
+
+        padding: 25px;
+
+    }
+
+}
+
+/* ==================================================
+   WANT 長押し・上下移動
+   ================================================== */
+
+.want-item {
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.want-item.want-dragging {
+    opacity: 0.9;
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.15);
+
+    position: relative;
+    z-index: 10;
+}
+
+/* ==================================================
+   背景色3パターン
+   ================================================== */
+
+body.theme-white {
+    background: #fafafa;
+    color: #222;
+}
+
+body.theme-dark {
+    background: #111;
+    color: #eee;
+}
+
+body.theme-blue {
+    background: #eaf4f8;
+    color: #234;
+}
+
+/* ==================================================
+   MY PAGE
+   ================================================== */
+
+.my-page .page-inner {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.my-page-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 50px;
+
+}
+
+
+.my-page-number {
+
+    font-size: 28px;
+
+    font-weight: 300;
+
+    letter-spacing: 0.08em;
+
+    margin-bottom: 70px;
+
+}
+
+
+.my-page-since {
+
+    font-size: 18px;
+
+    font-weight: 300;
+
+    color: #888;
+
+    letter-spacing: 0.12em;
+
+    margin-bottom: 15px;
+
+}
+
+
+.my-page-day {
+
+    font-size: 64px;
+
+    font-weight: 200;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+.my-page-day span {
+
+    display: block;
+
+    margin-top: 12px;
+
+    font-size: 72px;
+
+    font-weight: 200;
+
+    color: #222;
+
+}
+
+
+/* ==================================================
+   MY PAGE スマートフォン
+   ================================================== */
+
+@media (
+    max-width: 600px
+) {
+
+    .my-page-info {
+
+        margin-top: 35px;
+
+    }
+
+
+    .my-page-number {
+
+        font-size: 24px;
+
+        margin-bottom: 60px;
+
+    }
+
+
+    .my-page-since {
+
+        font-size: 16px;
+
+    }
+
+
+    .my-page-day {
+
+        font-size: 50px;
+
+    }
+
+
+    .my-page-day span {
+
+        font-size: 62px;
+
+    }
+
+}
+
+/* ==================================================
+   WANT上下移動
+   ================================================== */
+
+.want-item {
+    touch-action: pan-y;
+    cursor: grab;
+}
+
+.want-item.want-dragging {
+    opacity: 0.55;
+    cursor: grabbing;
+    transform: scale(1.02);
+}
+
+/* ==================================================
+   WANT操作
+   ================================================== */
+
+.want-item {
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.want-text {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.want-item.want-dragging {
+    opacity: 0.55;
+    transform: scale(1.02);
+}

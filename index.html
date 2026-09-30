@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TOMORROW</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         3画面
+         ================================================== -->
+
+    <div class="pages">
+
+
+        <!-- ==================================================
+             WANT
+             ================================================== -->
+
+        <section class="page want-page">
+
+            <div class="page-inner">
+
+                <div class="page-title">
+                    W A N T
+                </div>
+
+
+                <button
+                    id="addWantButton"
+                    class="plus-button"
+                >
+                    ＋
+                </button>
+
+
+                <div
+                    id="wantList"
+                    class="want-list"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             TODAY
+             ================================================== -->
+
+        <section class="page today-page">
+
+            <div class="page-inner">
+
+
+                <div
+                    id="date"
+                    class="date"
+                ></div>
+
+
+                <div
+                    id="time"
+                    class="time"
+                ></div>
+
+
+                <div class="today-title">
+                    T O D A Y
+                </div>
+
+
+                <div
+                    id="todayTasks"
+                    class="today-tasks"
+                ></div>
+
+
+                <div
+                    id="progress"
+                    class="progress"
+                >
+                    0 / 3
+                </div>
+
+
+                <div class="separator"></div>
+
+
+                <div class="tomorrow-section">
+
+                    <h2>
+                        TOMORROW
+                    </h2>
+
+
+                    <div
+                        id="tomorrowPreview"
+                        class="tomorrow-preview"
+                    ></div>
+
+
+                    <button
+                        id="tomorrowButton"
+                        class="tomorrow-button"
+                    >
+                        明日の3つを決める
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             INSPIRE
+             ================================================== -->
+
+        <section class="page inspire-page">
+
+            <div class="page-inner">
+
+
+                <div class="page-title">
+                    I N S P I R E
+                </div>
+
+
+                <div class="inspire-grid">
+
+
+                    <!-- 画像 -->
+
+                    <button
+                        id="personInspireButton"
+                        class="inspire-card"
+                    >
+                        <span>
+                            画像
+                        </span>
+                    </button>
+
+
+                    <!-- 言葉 -->
+
+                    <button
+                        id="quoteInspireButton"
+                        class="inspire-card"
+                    >
+                        <span>
+                            言葉
+                        </span>
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+                <!-- ==================================================
+             MY PAGE
+             ================================================== -->
+
+        <section class="page my-page">
+
+            <div class="page-inner">
+
+                <div class="page-title">
+                    M Y  P A G E
+                </div>
+
+
+                <div class="my-page-info">
+
+                    <div class="my-page-number">
+                        No.<span id="tomorrowSerial"></span>
+                    </div>
+
+
+                    <div class="my-page-since">
+                        Since
+                        <span id="tomorrowSince"></span>
+                    </div>
+
+
+                    <div class="my-page-day">
+                        DAY
+                        <span id="tomorrowDay"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         WANT追加モーダル
+         ================================================== -->
+
+    <div
+        class="modal"
+        id="wantModal"
+    >
+
+        <div class="modal-content">
+
+            <h2>
+                WANTを追加
+            </h2>
+
+
+            <input
+                type="text"
+                id="wantInput"
+                placeholder="やりたいこと"
+            >
+
+
+            <button
+                id="saveWant"
+            >
+                保存
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         TOMORROWモーダル
+         ================================================== -->
+
+    <div
+        class="modal"
+        id="tomorrowModal"
+    >
+
+        <div class="modal-content">
+
+            <h2>
+                明日の3つ
+            </h2>
+
+
+            <input
+                type="text"
+                id="tomorrow1"
+                placeholder="1つ目"
+            >
+
+
+            <input
+                type="text"
+                id="tomorrow2"
+                placeholder="2つ目"
+            >
+
+
+            <input
+                type="text"
+                id="tomorrow3"
+                placeholder="3つ目"
+            >
+
+
+            <button
+                id="saveTomorrow"
+            >
+                保存
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         画像モーダル
+         ================================================== -->
+
+    <div
+        class="modal"
+        id="personModal"
+    >
+
+        <div
+            class="modal-content inspire-modal-content"
+        >
+
+            <h2>
+                画像
+            </h2>
+
+
+            <label class="image-select-button">
+
+                画像を選ぶ
+
+                <input
+                    type="file"
+                    id="personImage"
+                    accept="image/*"
+                    multiple
+                    hidden
+                >
+
+            </label>
+
+
+            <div
+                id="personImagePreview"
+                class="person-image-preview"
+            ></div>
+
+
+            <div class="opacity-control">
+
+                <div class="control-label">
+                    画像の濃さ
+                </div>
+
+
+                <input
+                    type="range"
+                    id="personOpacity"
+                    min="0.1"
+                    max="0.8"
+                    step="0.05"
+                    value="0.3"
+                >
+
+            </div>
+
+
+            <button
+                id="savePerson"
+            >
+                保存
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         言葉モーダル
+         ================================================== -->
+
+    <div
+        class="modal"
+        id="quoteModal"
+    >
+
+        <div
+            class="modal-content inspire-modal-content"
+        >
+
+            <h2>
+                言葉
+            </h2>
+
+
+            <textarea
+                id="quoteInput"
+                class="quote-input"
+                placeholder="好きな言葉や格言を書いてください"
+            ></textarea>
+
+
+            <button
+                id="saveQuote"
+            >
+                保存
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
